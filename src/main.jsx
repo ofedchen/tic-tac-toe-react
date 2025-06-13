@@ -7,11 +7,11 @@ import "./App.css";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <StrictMode>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<App />} />
-          <Route path="/messages/:username" element={<Messages />} />
-        </Routes>
-      </BrowserRouter>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<App />} />
+        <Route path="/messages/:username" element={<Messages />} />
+      </Routes>
+    </BrowserRouter>
   </StrictMode>
 );

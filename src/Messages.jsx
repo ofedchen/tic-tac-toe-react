@@ -9,6 +9,7 @@ export default function Messages() {
     fetch("http://localhost:3000/messages")
       .then((res) => res.json())
       .then((data) => {
+        console.log(data)
         // Filtering messages using the username from our params
         setMessages(data.filter((msg) => msg.user === username));
       });
@@ -18,9 +19,9 @@ export default function Messages() {
     <div>
       <h2>Alla meddelanden från {username}</h2>
       <ul>
-        {messages.map((msg, i) => (
-          <li key={i}>
-            <strong>{msg.user}:</strong> {msg.message}
+        {messages.map((msg, _id) => (
+          <li key={_id}>
+            <span className="sentFrom">{msg.user}:</span> {msg.message}
           </li>
         ))}
       </ul>

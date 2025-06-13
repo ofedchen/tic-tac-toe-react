@@ -46,7 +46,10 @@ export default function Chat({ messages, onSend }) {
           </li>
         ))}
       </ul>
-      <form onSubmit={handleSend} style={{ display: "flex", alignItems: "center" }}>
+      <form
+        onSubmit={handleSend}
+        style={{ display: "flex", alignItems: "center" }}
+      >
         <input
           value={input}
           onChange={(e) => setInput(e.target.value)}

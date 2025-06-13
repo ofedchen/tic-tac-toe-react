@@ -8,7 +8,9 @@ function Board({ board, onCellClick, winningCells }) {
           style={{
             backgroundColor: winningCells.includes(i) ? "#a0e7a0" : "",
           }}
-          onClick={() => {onCellClick(i)}}
+          onClick={() => {
+            onCellClick(i);
+          }}
         >
           {cell}
         </button>

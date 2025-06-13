@@ -21,7 +21,7 @@ function GameForm({ title, onSubmit }) {
           type="text"
           value={gameName}
           required
-          onClick={() => setGameName('')}
+          onClick={() => setGameName("")}
           onChange={(e) => setGameName(e.target.value)}
           placeholder="Namnge ditt spel"
         />
