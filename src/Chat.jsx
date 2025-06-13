@@ -42,7 +42,7 @@ export default function Chat({ messages, onSend }) {
       <ul>
         {messages.map((msg, i) => (
           <li key={i}>
-            <strong>{msg.user}:</strong> {msg.message}
+            <span className="sentFrom">{msg.user}:</span> {msg.message}
           </li>
         ))}
       </ul>
@@ -52,7 +52,7 @@ export default function Chat({ messages, onSend }) {
           onChange={(e) => setInput(e.target.value)}
           placeholder="Skriv ett meddelande..."
         />
-        <button type="button" onClick={() => setShowPicker((v) => !v)}>
+        <button type="button" onClick={() => setShowPicker((value) => !value)}>
           😊
         </button>
         <button type="submit">Skicka</button>

@@ -31,8 +31,8 @@ export default function App() {
       setGameTitle(gameName);
     });
 
-    socket.on("newChatMessage", function ({user, message, messages}) {
-      setMessages([...messages, {user, message}]);
+    socket.on("newChatMessage", function ({ user, message, messages }) {
+      setMessages([...messages, { user, message }]);
     });
 
     socket.on("newMove", ({ index, symbol, players, board }) => {
@@ -156,8 +156,8 @@ export default function App() {
           ) : (
             <>
               <ul>
-                {players.map((p, i) => (
-                  <li key={i}>
+                {players.map((p) => (
+                  <li key={p.name.concat(p.symbol)}>
                     Spelare {p.symbol}: {p.name}
                   </li>
                 ))}
@@ -175,8 +175,13 @@ export default function App() {
                 onCellClick={handleCellClick}
                 winningCells={winningCells}
               />
-              <p className="gameMessage">Nu är det {currentPlayer.name}s tur</p>
-              {gameResult && <h3>{gameResult}</h3>}
+              {gameResult ? (
+                gameResult && <h3 className="gameResult">{gameResult}</h3>
+              ) : (
+                <p className="gameMessage">
+                  Nu är det {currentPlayer.name}s tur
+                </p>
+              )}
               <button onClick={handleReset}>Starta om</button>
             </>
           ) : (

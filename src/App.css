@@ -63,6 +63,10 @@ input {
   font-size: 1.2em;
 }
 
+.gameResult {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
 button {
   margin-top: 20px;
   padding: 10px 20px;
@@ -85,6 +89,10 @@ li {
 #playersList>li {
   list-style: none;
   text-align: center;
+}
+
+.sentFrom {
+  font-weight: 600;
 }
 
 #game {

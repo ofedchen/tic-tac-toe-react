@@ -1,4 +1,4 @@
-function Board({ board, onCellClick, winningCells = [] }) {
+function Board({ board, onCellClick, winningCells }) {
   return (
     <div className="board">
       {board.map((cell, i) => (
@@ -8,7 +8,7 @@ function Board({ board, onCellClick, winningCells = [] }) {
           style={{
             backgroundColor: winningCells.includes(i) ? "#a0e7a0" : "",
           }}
-          onClick={() => {console.log('test'); onCellClick(i)}}
+          onClick={() => {onCellClick(i)}}
         >
           {cell}
         </button>
