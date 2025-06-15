@@ -9,7 +9,7 @@ export default function Messages() {
     fetch("http://localhost:3000/messages")
       .then((res) => res.json())
       .then((data) => {
-        console.log(data)
+        console.log(data);
         // Filtering messages using the username from our params
         setMessages(data.filter((msg) => msg.user === username));
       });

@@ -1,6 +1,7 @@
-import { useState, useEffect } from "react";
+import { useContext, useState, useEffect } from "react";
 import socket from "./socket.js";
 import { Link } from "react-router-dom";
+import { ThemeContext } from "./ThemeContext.js";
 
 import "./App.css";
 import Board from "./Board.jsx";
@@ -18,6 +19,8 @@ export default function App() {
   const [currentPlayer, setCurrentPlayer] = useState(null);
   const [winningCells, setWinningCells] = useState([]);
   const [gameResult, setGameResult] = useState(null);
+
+  const { theme, toggleTheme } = useContext(ThemeContext); // useContext
 
   useEffect(() => {
     socket.on("newPlayer", function (player) {
@@ -139,6 +142,12 @@ export default function App() {
 
   return (
     <>
+      <button
+        onClick={toggleTheme}
+        style={{ position: "absolute", top: 10, right: 10 }}
+      >
+        Byt till {theme === "light" ? "mörkt" : "ljust"} läge
+      </button>
       <h1>Spela och chatta</h1>
       <main>
         <section>

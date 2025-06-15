@@ -11,10 +11,10 @@ const app = express();
 const server = createServer(app);
 
 const io = new Server(server, {
-  cors: {
-    origin: "http://localhost:5173",
-    methods: ["GET", "POST"]
-  }
+    cors: {
+        origin: "http://localhost:5173",
+        methods: ["GET", "POST"]
+    }
 });
 const port = 3000;
 
@@ -55,7 +55,7 @@ io.on('connection', (socket) => {
 
     socket.on('chatMessage', msg => {
         console.log('Meddelanden: ' + msg.message);
-        io.emit('newChatMessage', { user: msg.user, message: msg.message, messages: msg.messages }); 
+        io.emit('newChatMessage', { user: msg.user, message: msg.message, messages: msg.messages });
         let today = new Date();
         let date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
         let time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
@@ -85,9 +85,9 @@ io.on('connection', (socket) => {
     //     newMatch.save();
     // })
 
-    socket.on('move', ({index, symbol, players, board}) => {
-        console.log('cell ', {index, symbol, players, board});
-        io.emit('newMove', {index, symbol, players, board});
+    socket.on('move', ({ index, symbol, players, board }) => {
+        console.log('cell ', { index, symbol, players, board });
+        io.emit('newMove', { index, symbol, players, board });
     });
 
     // socket.on('matchUpdate', async (win) => {

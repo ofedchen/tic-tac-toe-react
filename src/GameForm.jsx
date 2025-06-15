@@ -6,7 +6,7 @@ function GameForm({ title, onSubmit }) {
 
   useEffect(() => {
     setGameName(title);
-  }, [title]);
+  }, [title]); // to change title in the input field for the second player
 
   return (
     showForm && (

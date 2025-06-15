@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 function UserForm({ onSubmit }) {
-  const [name, setName] = useState(""); // to useContext??
+  const [name, setName] = useState("");
   return (
     <form
       onSubmit={(e) => {
